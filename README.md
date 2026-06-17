@@ -104,10 +104,10 @@ src/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/assignment-08.git
+git clone https://github.com/habib-web-dev1/hero-apps.git
 
 # 2. Navigate into the project
-cd assignment-08
+cd Hero Apps
 
 # 3. Install dependencies
 npm install
