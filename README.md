@@ -1,57 +1,152 @@
 <div align="center">
 
-# App Store – Single App Detail Page
+<img src="public/logo.png" alt="App Store Logo" width="80" />
 
+# Hero App Store — Single App Detail Page
 
-<br/><br/>
+**A modern, fully responsive app showcase built with React, mimicking the look and feel of a real App Store / Google Play listing.**
 
-**A modern, fully responsive single-app showcase page** – just like the real App Store / Google Play Store!
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-hero--apps--store--ah.netlify.app-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://hero-apps-store-ah.netlify.app/)
 
-[**Live Demo →**](https://hero-apps-store-ah.netlify.app/)  
-**Experience the real App Store feel in your browser**
-
-<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React"/>
-<img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind"/>
-<img src="https://img.shields.io/badge/Recharts-38B2AC?style=for-the-badge&logo=chart.js&logoColor=white" alt="Recharts"/>
-<img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" alt="Netlify"/>
+![React](https://img.shields.io/badge/React_19-61DAFB?style=flat-square&logo=react&logoColor=black)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_4-06B6D4?style=flat-square&logo=tailwind-css&logoColor=white)
+![DaisyUI](https://img.shields.io/badge/DaisyUI-FF69B4?style=flat-square&logo=daisyui&logoColor=white)
+![Recharts](https://img.shields.io/badge/Recharts-FF8042?style=flat-square&logo=chartdotjs&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=flat-square&logo=netlify&logoColor=white)
 
 </div>
 
+---
+
+## Overview
+
+App Store is a React single-page application that replicates the experience of browsing an app marketplace. Users can browse a catalog of apps, view detailed stats for each app (downloads, ratings, reviews), and install apps with a single click — all with a clean, App Store-inspired UI.
+
+---
+
+## Screenshots
+
+| Home                     | App Detail                          | Installed                             |
+| ------------------------ | ----------------------------------- | ------------------------------------- |
+| ![Hero](public/hero.png) | ![App Detail](public/App-Error.png) | ![Install](public/icon-downloads.png) |
+
+---
+
 ## Features
 
-- **Beautiful App Card** – App icon, title, developer, category, and description  
-- **Real Stats** – Total downloads, average rating, review count  
-- **Interactive "Install Now" Button** – Shows app size + disables after install with toast  
-- **Rating Distribution Bar Chart** – Powered by **Recharts** (5★ → 1★ breakdown)  
-- **Fully Responsive** – Looks perfect on mobile, tablet, and desktop  
-- **Loading State** – Clean spinner while fetching data  
-- **Error Handling** – Redirects to `/error` if app not found  
-- **404-like experience**  
-- **Toast Notifications** – Powered by **react-toastify** (install success, errors)  
-- **Clean & Modern UI** – Built with **Tailwind CSS** (no custom CSS needed)
+- **App Catalog** — Browse a grid of app cards with icons, titles, categories, and ratings
+- **Dynamic App Detail Page** — Each app has its own route (`/apps/:id`) with full details
+- **Live Stats** — Total downloads, average rating, and total review count per app
+- **Interactive Rating Chart** — Horizontal bar chart (5★ → 1★ breakdown) powered by Recharts
+- **Install Button** — Displays app size, saves to `localStorage`, and disables after install
+- **Toast Notifications** — Success and error feedback via React Toastify
+- **Error Handling** — Redirects to a custom `/error` page when an app ID is not found
+- **Loading Spinner** — Shown while fetching app data
+- **Fully Responsive** — Mobile, tablet, and desktop layouts using Tailwind CSS + DaisyUI
+
+---
 
 ## Tech Stack
 
-| Technology         | Purpose                          |
-|--------------------|----------------------------------|
-| React              | Component-based UI               |
-| React Router       | Navigation & dynamic routes      |
-| Tailwind CSS       | Beautiful, responsive styling    |
-| Recharts           | Interactive rating bar chart     |
-| React Toastify     | Smooth notifications             |
-| Custom Hooks       | Clean logic separation           |
-| Vite / Netlify     | Blazing fast build & deployment  |
+| Technology                                                  | Version | Purpose                              |
+| ----------------------------------------------------------- | ------- | ------------------------------------ |
+| [React](https://react.dev/)                                 | 19      | Component-based UI                   |
+| [React Router](https://reactrouter.com/)                    | 7       | Client-side routing & dynamic routes |
+| [Tailwind CSS](https://tailwindcss.com/)                    | 4       | Utility-first responsive styling     |
+| [DaisyUI](https://daisyui.com/)                             | 5       | Tailwind component library           |
+| [Recharts](https://recharts.org/)                           | 3       | Interactive rating bar chart         |
+| [React Toastify](https://fkhadra.github.io/react-toastify/) | 11      | Toast notifications                  |
+| [Axios](https://axios-http.com/)                            | 1       | HTTP requests                        |
+| [Lucide React](https://lucide.dev/)                         | latest  | Icon library                         |
+| [Vite](https://vitejs.dev/)                                 | 7       | Build tool & dev server              |
 
-## Live Preview
+---
 
-[https://hero-apps-store-ah.netlify.app/](https://hero-apps-store-ah.netlify.app/)
+## Project Structure
 
+```
+src/
+├── Components/         # Reusable UI components
+│   ├── Banner.jsx
+│   ├── Cardsection.jsx
+│   ├── Footer.jsx
+│   ├── Hero.jsx
+│   ├── Navbar.jsx
+│   ├── Review.jsx
+│   ├── SingleCard.jsx
+│   └── Spinner.jsx
+├── Hook/               # Custom hooks for data & logic
+│   ├── useApps.js      # Fetches app data
+│   └── useAppLogic.js  # App detail state & install logic
+├── Layouts/
+│   └── MainLayout.jsx  # Shared layout with Navbar & Footer
+├── Pages/
+│   ├── Home.jsx        # Landing page
+│   ├── Apps.jsx        # App catalog / browse page
+│   ├── AppDetail.jsx   # Single app detail page
+│   ├── Install.jsx     # Installed apps list
+│   └── ErrorPage.jsx   # 404 / not found page
+└── Routes/
+    └── Routes.jsx      # Application route definitions
+```
 
+---
 
-## Installation & Run Locally
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) v18 or higher
+- npm v9 or higher
+
+### Installation
 
 ```bash
-git clone https://github.com/your-username/app-store-single-page.git
-cd app-store-single-page
+# 1. Clone the repository
+git clone https://github.com/your-username/assignment-08.git
+
+# 2. Navigate into the project
+cd assignment-08
+
+# 3. Install dependencies
 npm install
+
+# 4. Start the development server
 npm run dev
+```
+
+The app will be available at `http://localhost:5173`.
+
+### Available Scripts
+
+| Command           | Description                               |
+| ----------------- | ----------------------------------------- |
+| `npm run dev`     | Start local development server            |
+| `npm run build`   | Build for production (outputs to `dist/`) |
+| `npm run preview` | Preview the production build locally      |
+| `npm run lint`    | Run ESLint across the project             |
+
+---
+
+## Deployment
+
+This project is deployed on **Netlify** with a `public/_redirects` file to handle client-side routing:
+
+```
+/*    /index.html   200
+```
+
+To deploy your own instance, push the repository to GitHub and connect it to Netlify. Set the build command to `npm run build` and the publish directory to `dist`.
+
+---
+
+## 📄 License
+
+This project is for portfolio and demonstration purposes.
+
+---
+
+<div align="center">
+  Built with ❤️ by <a href="https://github.com/habib-web-dev1">habib-web-dev1</a>
+</div>
